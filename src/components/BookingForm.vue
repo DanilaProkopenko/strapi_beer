@@ -3,9 +3,8 @@
         {{ error }}
     </div>
     <form id="form" v-on:submit="handleSubmit" v-else>
-        <label for="title">title</label>
-        <input id="title" v-model="modifiedData.title" type="text" name="title">
-
+        <label for="name">name</label>
+        <input required id="name" v-model="modifiedData.name" type="text" name="name">
         <input type="submit" value="Submit">
     </form>
 </template>
@@ -18,7 +17,7 @@ export default {
     data() {
         return {
             modifiedData: {
-                title: '',
+                name: '',
             },
             error: null
         }
@@ -29,8 +28,7 @@ export default {
 
             try {
                 // const response = await axios.post('http://localhost:1337/api/news', this.modifiedData)
-                const response = await axios.post('http://localhost:1337/api/news', { "data" : this.modifiedData})
-                // const response2 = await axios.post('http://localhost:1337/api/news', { "data": { title: 'test' } })
+                const response = await axios.post('http://localhost:1337/api/booking-forms', { "data" : this.modifiedData})
                 console.log(response);
             } catch (error) {
                 this.error = error;
