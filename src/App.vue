@@ -1,15 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HeaderNav />
+  <BlogHome />
+  <BookingForm />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderNav from './components/HeaderNav.vue'
+import BlogHome from './components/BlogHome.vue'
+import BookingForm from './components/BookingForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderNav,
+    BlogHome,
+    BookingForm
   }
 }
 </script>
