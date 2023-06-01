@@ -1,17 +1,8 @@
 <template>
-    <!-- <div id="blog-post">
-        <h1>{{ post.data.title }}</h1>
-        <h4>{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
-        <div v-html="post.data.body"></div>
-
-        <router-link v-if="post.meta.previous_post" :to="/blog/ + post.meta.previous_post.slug" class="button">
-            {{ post.meta.previous_post.title }}
-        </router-link>
-        <router-link v-if="post.meta.next_post" :to="/blog/ + post.meta.next_post.slug" class="button">
-            {{ post.meta.next_post.title }}
-        </router-link>
-    </div> -->
-    {{ id }}
+    <div id="blog-post">
+        id — {{ id }} <br>
+        title - {{ post.title }}
+    </div>
 </template>
   
 <script>
@@ -19,24 +10,33 @@ import axios from 'axios';
 
 export default {
     name: 'blog-post',
-    data() {
-        return {
-            post: {}
-        }
-    },
-    async mounted() {
-        try {
-            const response = await axios.get('http://localhost:1337/api/news/' + this.$route.params.id)
-            this.posts = response.data.data
-        } catch (error) {
-            this.error = error
-        }
-    },
     props: {
         id: {
             type: String,
             default: null,
         },
-    }
+    },
+    data() {
+        return {
+            post: []
+        }
+    },
+    async mounted() {
+        try {
+            const response = await axios.get('http://localhost:1337/api/news/' + this.$route.params.id)
+            this.post = response.data.data
+            this.post.title = response.data.data.attributes.title
+
+        } catch (error) {
+            this.error = error
+        }
+    },
+
 }
 </script>
+
+<style>
+#blog-post {
+    text-align: left;
+}
+</style>

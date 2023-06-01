@@ -10,6 +10,8 @@
         <div v-for="post in posts" :key="post.id">
             <router-link :to="'/blog/' + post.id">
                 <h2>{{ post.attributes.title }}</h2>
+                <br>
+                <div>{{ post }}</div>
             </router-link>
         </div>
 

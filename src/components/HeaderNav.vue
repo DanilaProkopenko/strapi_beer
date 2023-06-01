@@ -6,8 +6,11 @@
                     <router-link :to="'/blog/'">
                         блог
                     </router-link>
-                    <router-link :to="'/booking-form/'">
+                    <router-link :to="'/booking-form'">
                         Форма
+                    </router-link>
+                    <router-link :to="'/test-blog'">
+                        Тестовый блог
                     </router-link>
                 </ul>
             </div>

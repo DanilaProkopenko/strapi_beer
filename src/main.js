@@ -6,6 +6,7 @@ import App from "./App.vue";
 import BlogHome from "./components/BlogHome.vue"
 import BlogPost from "./components/BlogPost.vue"
 import BookingForm from "./components/BookingForm.vue"
+import TestBlog from "./components/TestBlog.vue"
 
 const routes = [
   {
@@ -14,15 +15,20 @@ const routes = [
     component: BlogHome
   },
   {
+    path: "/blog/:id",
+    component: BlogPost,
+    props: true
+  },
+  {
     path: '/booking-form',
     name: 'booking-form',
     component: BookingForm
   },
   {
-    path: "/blog/:id",
-    component: BlogPost,
-    props: true
-  }
+    path: '/test-blog',
+    name: 'test-blog',
+    component: TestBlog
+  },
 ];
 
 const router = createRouter({
