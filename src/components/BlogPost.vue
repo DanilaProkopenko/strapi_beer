@@ -1,7 +1,17 @@
 <template>
     <div id="blog-post">
-        id — {{ id }} <br>
-        title - {{ post.title }}
+        <p>
+            id — {{ id }}
+        </p>
+        <p>
+            title - {{ post.title }}
+        </p>
+        <p>
+            content - {{ post.content }}
+        </p>
+        <p>
+            description - {{ post.description }}
+        </p>
     </div>
 </template>
   
@@ -24,8 +34,10 @@ export default {
     async mounted() {
         try {
             const response = await axios.get('http://localhost:1337/api/news/' + this.$route.params.id)
-            this.post = response.data.data
-            this.post.title = response.data.data.attributes.title
+            this.post = response.data.data;
+            this.post.title = response.data.data.attributes.title;
+            this.post.description = response.data.data.attributes.description;
+            this.post.content = response.data.data.attributes.content;
 
         } catch (error) {
             this.error = error
