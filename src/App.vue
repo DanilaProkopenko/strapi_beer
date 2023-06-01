@@ -1,20 +1,15 @@
 <template>
   <HeaderNav />
-  <BlogHome />
-  <BookingForm />
+  <router-view />
 </template>
 
 <script>
 import HeaderNav from './components/HeaderNav.vue'
-import BlogHome from './components/BlogHome.vue'
-import BookingForm from './components/BookingForm.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderNav,
-    BlogHome,
-    BookingForm
   }
 }
 </script>

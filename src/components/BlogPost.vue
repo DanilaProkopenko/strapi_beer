@@ -1,5 +1,5 @@
 <template>
-    <div id="blog-post">
+    <!-- <div id="blog-post">
         <h1>{{ post.data.title }}</h1>
         <h4>{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
         <div v-html="post.data.body"></div>
@@ -10,7 +10,8 @@
         <router-link v-if="post.meta.next_post" :to="/blog/ + post.meta.next_post.slug" class="button">
             {{ post.meta.next_post.title }}
         </router-link>
-    </div>
+    </div> -->
+    {{ id }}
 </template>
   
 <script>
@@ -25,11 +26,17 @@ export default {
     },
     async mounted() {
         try {
-            const response = await axios.get('http://localhost:1337/api/news')
+            const response = await axios.get('http://localhost:1337/api/news/' + this.$route.params.id)
             this.posts = response.data.data
         } catch (error) {
             this.error = error
         }
+    },
+    props: {
+        id: {
+            type: String,
+            default: null,
+        },
     }
 }
 </script>

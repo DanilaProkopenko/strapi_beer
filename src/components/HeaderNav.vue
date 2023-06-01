@@ -3,9 +3,12 @@
         <nav class="uk-navbar-container" uk-navbar>
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
-                    <li>
-                        <a href="/">Main screen </a>
-                    </li>
+                    <router-link :to="'/blog/'">
+                        блог
+                    </router-link>
+                    <router-link :to="'/booking-form/'">
+                        Форма
+                    </router-link>
                 </ul>
             </div>
         </nav>

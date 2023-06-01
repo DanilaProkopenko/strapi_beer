@@ -12,6 +12,7 @@
                 <h2>{{ post.attributes.title }}</h2>
             </router-link>
         </div>
+
     </div>
 </template>
 
